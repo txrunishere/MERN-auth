@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { useNavigate } from "react-router";
+
 
 export default function Register() {
   const [data, setData] = useState({
@@ -8,6 +10,7 @@ export default function Register() {
     email: "",
     password: "",
   });
+  const navigate = useNavigate()
 
   const handleRegister = async () => {
     try {
@@ -18,6 +21,7 @@ export default function Register() {
         password
       })
       toast.success(res.data.message)
+      navigate('/login')
     } catch (error) {
       console.log(error.response);
       toast.error(error.response.data.error)
