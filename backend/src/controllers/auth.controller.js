@@ -107,4 +107,10 @@ const handleLogin = async (req, res) => {
   }
 };
 
-export { handleHealthCheck, handleRegister, handleLogin };
+const handleGetUser = async (req, res) => {
+  return res.status(200).json({
+    user: req.user
+  })
+}
+
+export { handleHealthCheck, handleRegister, handleLogin, handleGetUser };
